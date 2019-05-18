@@ -1,8 +1,19 @@
 version: "3"
 services:
-  chrome:
-    container_name: ${COMPOSE_PROJECT_NAME}_chrome
-    image: selenium/standalone-chrome
+  # chrome:
+  #   container_name: ${COMPOSE_PROJECT_NAME}_chrome
+  #   image: selenium/standalone-chrome
+  #   volumes:
+  #     - /dev/shm:/dev/shm
+  #   networks:
+  #     - app
+
+  chrome-debug:
+    container_name: ${COMPOSE_PROJECT_NAME}_chrome-debug
+    image: selenium/standalone-chrome-debug
+    ports:
+      - 4444
+      - 5900:5900
     volumes:
       - /dev/shm:/dev/shm
     networks:
